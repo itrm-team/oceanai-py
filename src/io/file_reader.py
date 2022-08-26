@@ -1,4 +1,3 @@
-import fs
 from src.io.reader import Reader
 from typing import List
 

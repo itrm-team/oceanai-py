@@ -1,5 +1,3 @@
-from math import floor
-from turtle import shape
 from typing import List
 import tensorflow as tf
 from src.ia.tensorflow_s.multilevel.sequential_data_parser import SequentialDataParser

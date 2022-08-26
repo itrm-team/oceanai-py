@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from ocean_lib.ocean.ocean import Ocean
 from ocean_lib.web3_internal.wallet import Wallet
 from ocean_lib.models.data_nft import DataNFT
