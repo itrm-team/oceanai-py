@@ -5,7 +5,7 @@
 > Wrapper library that allows a direct integration between the Ocean marketplace and artificial intelligence tools like tensorflow
 
 
-With Oceanai-js, you can:
+With Oceanai-py, you can:
 
 - **Create** artificial intelligence models: the current state of the library uses [Tensorflow](https://pypi.org/project/tensorflow/) for the implementation of the AI models, anything that you can do with [Tensorflow](https://pypi.org/project/tensorflow/)  you can also do it with **Oceanai-py** 
 
