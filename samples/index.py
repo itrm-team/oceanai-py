@@ -49,7 +49,7 @@ iters = 10
 
 goal = ModelGoal(inputs, outputs)
 
-def sample4():
+def sample():
     layers = [
         tf.keras.layers.Dense(units=args['inputs'], input_shape=(args['inputs'],)), # input layer
         tf.keras.layers.Dense(units=20 ), # hidden layer 1
@@ -64,4 +64,4 @@ def sample4():
     print("> predictions: "+str(model.apply(inputs)))
     
 
-sample4()
+sample()
