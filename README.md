@@ -36,7 +36,7 @@ This library is still in alpha state and you can expect running into problems.
 ## 🏗 Installation
 
 ```bash
-#Is necesary to install tensorflow  and ocean-lib separately for aboiding download errors.
+#Is necesary to install tensorflow  and ocean-lib separately to avoid download errors.
 pip install oceanai-py
 pip install tensorflow
 pip install --pre ocean-lib
