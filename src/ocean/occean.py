@@ -28,7 +28,7 @@ class Occean():
         return wallet
     
     def createDataToken(self,data_nft:DataNFT,value:int)->Datatoken:
-        datatoken = data_nft.create_datatoken("Datatoken 1", "DT1", from_wallet=self.from_wallet)
+        datatoken = data_nft.create_datatoken("Datatoken 1", "DT1", from_wallet=self.from_wallet,minter = self.from_wallet.address)
         print(f"Created datatoken. Its address is {datatoken.address}")
         datatoken.mint(
         account_address=self.wallet.address,
@@ -60,8 +60,8 @@ class Occean():
     def buy(self,datatoken:Datatoken,exchangeID,amount:int,max:int):
         # Approve tokens for Bob
         fixed_price_address = self.ocean.fixed_rate_exchange.address
-        datatoken.approve(fixed_price_address, self.ocean.to_wei(1), self.wallet)
-        self.OCEAN_token.approve(fixed_price_address, self.ocean.to_wei(1), self.wallet)
+        datatoken.approve(fixed_price_address, self.ocean.to_wei(4), self.wallet)
+        self.OCEAN_token.approve(fixed_price_address, self.ocean.to_wei(4), self.wallet)
 
         tx_result = self.ocean.fixed_rate_exchange.buy_dt(
             exchange_id=exchangeID,

@@ -12,8 +12,7 @@ print(f"New private key: {account2.key.hex()}")
  """
 
 d = {
-   'network_name' : 'rinkeby',
-   'network' : 'https://rinkeby.infura.io/v3/proyectid',
+   'network' : 'https://rinkeby.infura.io/v3/proyect_key',
    'metadataCacheUri' : 'https://v4.aquarius.oceanprotocol.com',
    'providerUri' : 'https://v4.provider.rinkeby.oceanprotocol.com',
 } 
@@ -25,5 +24,5 @@ data_nft = occean.publishNFTToken('NFTToken1', 'NFT1')
 ##occean.createDatasetExmple()
 datatoken = occean.createDataToken(data_nft,2)
 #datatoken = occean.getDatatoken('0xB8B7B54c3d8C63c316aF8FF4Dea6075b1042A292')
-exange_id = occean.getExchangeId(datatoken,1,3)
-tx_result = occean.buy(datatoken,exange_id,1,2)
+exange_id = occean.getExchangeId(datatoken,1,1)
+tx_result = occean.buy(datatoken,exange_id,1,10)

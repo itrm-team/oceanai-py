@@ -2,7 +2,10 @@ import tensorflow as tf
 from model_goal import ModelGoal
 from src.ia.tensorflow_s.sequential_space import SequentialSpace
 from src.ia.tensorflow_s.models.multilayer.multilayer_dataset_parser import MultilayerDataParser
+from src.ia.tensorflow_s.models.multilayer.multilayer_perceptron_space import MultilayerPerceptronSpace
+from src.ia.tensorflow_s.models.multilayer.multilayer_perceptron_space import MultilayerPerceptronArgs
 from src.ia.tensorflow_s.multilevel.multilevel_sequential_training import MultilevelSequentialTraining
+from src.ia.tensorflow_s.models.multilayer.multilayer_perceptron_training import MultilayerPerceptronTraining
 
 inputs = [
     [ 0.1, 0.3, 0.4, 0.4 ],
@@ -49,7 +52,7 @@ iters = 10
 
 goal = ModelGoal(inputs, outputs)
 
-def sample():
+def sample1():
     layers = [
         tf.keras.layers.Dense(units=args['inputs'], input_shape=(args['inputs'],)), # input layer
         tf.keras.layers.Dense(units=20 ), # hidden layer 1
@@ -63,5 +66,26 @@ def sample():
     print('> outputs: '+str(outputs))
     print("> predictions: "+str(model.apply(inputs)))
     
+def sample2():
+    parser = MultilayerDataParser(args['outputs'])
+    argsp = MultilayerPerceptronArgs(inputs=args['inputs'],outputs=args['outputs'],hidden=args['hidden'])
+    space = MultilayerPerceptronSpace(argsp)
+    training = MultilevelSequentialTraining(goal,parser,compileArgs,fitArgs,iters)
+    model = training.apply(space)
+    print('> outputs: '+str(outputs))
+    print("> predictions: "+str(model.apply(inputs)))
+    
+    
+    
+def sample3():
+    argsp = MultilayerPerceptronArgs(inputs=args['inputs'],outputs=args['outputs'],hidden=args['hidden'])
+    training = MultilayerPerceptronTraining(argsp,goal,compileArgs,fitArgs,iters)
+    model = training.apply()
+    print('> outputs: '+str(outputs))
+    print("> predictions: "+str(model.apply(inputs)))
+    
 
-sample()
+
+sample3()
+
+

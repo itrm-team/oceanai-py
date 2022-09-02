@@ -7,7 +7,7 @@ from src.ia.tensorflow_s.sequential_model import SequentialModel
 
 class SequentialSpace(Space[SequentialModel]):
 
-    def __init__(self,layers:List) -> None:
+    def __init__(self,layers) -> None:
         super().__init__()
         self.layers = layers
     
